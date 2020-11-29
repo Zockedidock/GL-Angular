@@ -8,6 +8,8 @@ import { GameContainerComponent } from "../app/game-container/game-container.com
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { AngularFirestoreModule } from "@angular/fire/firestore"
+import { AngularFireModule } from "@angular/fire"
 
 @NgModule({
   declarations: [
@@ -19,6 +21,8 @@ import { environment } from '../environments/environment';
     AppRoutingModule,
     BrowserAnimationsModule,
     MatButtonModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],

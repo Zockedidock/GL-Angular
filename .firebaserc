@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "gamelist-fe38c": {
+      "hosting": {
+        "game-launcher": [
+          "gamelist-fe38c"
+        ]
+      }
+    }
+  }
+}
