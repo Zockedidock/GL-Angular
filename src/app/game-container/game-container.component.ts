@@ -24,10 +24,11 @@ import { Component, OnInit, Input } from '@angular/core';
 
 export class GameContainerComponent implements OnInit {
     
-    @Input() imgSrc: String
-    @Input() version: String
-    @Input() name: String
-    @Input() link: String
+    @Input() imgSrc: string
+    @Input() version: string
+    @Input() name: string
+    @Input() link: string
+    @Input() searchText: string
 
     show: Boolean = true
 

@@ -3,3 +3,16 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 a { text-decoration: none; color: black;}
+
+.add-game-modal {
+    width: 100%;
+}
+
+#modalSubmitParent {
+    justify-content: space-between;
+}
+
+#imgParent img {
+    max-width: 100%;
+    max-height: 10rem;
+}
