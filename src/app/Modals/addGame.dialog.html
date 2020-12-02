@@ -1,49 +1,49 @@
 <h1 mat-dialog-title>Add Game</h1>
 <div mat-dialog-content>
-<div>
-    <mat-form-field class="add-game-modal">
-    <mat-label>Name</mat-label>
-    <input matInput 
-    [(ngModel)]="data.tmp.name" id="game-temp-name">
-    <button mat-button *ngIf="data.tmp.name" matSuffix mat-icon-button aria-label="Clear" (click)="data.tmp.name=''">
-        <mat-icon>close</mat-icon>
-    </button>
-    </mat-form-field>
-</div>
-<div>
-    <mat-form-field class="add-game-modal">
-    <mat-label>Version</mat-label>
-    <input matInput 
-    [(ngModel)]="data.tmp.version" id="game-temp-version">
-    <button mat-button *ngIf="data.tmp.version" matSuffix mat-icon-button aria-label="Clear" (click)="data.tmp.version=''">
-        <mat-icon>close</mat-icon>
-    </button>
-    </mat-form-field>
-</div>
-<div>
-    <mat-form-field class="add-game-modal">
-    <mat-label>Link</mat-label>
-    <input matInput 
-    [(ngModel)]="data.tmp.link" id="game-temp-link">
-    <button mat-button *ngIf="data.tmp.link" matSuffix mat-icon-button aria-label="Clear" (click)="data.tmp.link=''">
-        <mat-icon>close</mat-icon>
-    </button>
-    </mat-form-field>
-</div>
-<div id="imgParent">
-    <mat-form-field class="add-game-modal">
-        <mat-label>Img</mat-label>
+    <div>
+        <mat-form-field class="add-game-modal">
+        <mat-label>Name</mat-label>
         <input matInput 
-        [(ngModel)]="data.tmp.img" id="game-temp-img">
-        <button mat-button *ngIf="data.tmp.img" matSuffix mat-icon-button aria-label="Clear" (click)="data.tmp.img=''">
+        [(ngModel)]="data.tmp.name" id="game-temp-name">
+        <button mat-button *ngIf="data.tmp.name" matSuffix mat-icon-button aria-label="Clear" (click)="data.tmp.name=''">
             <mat-icon>close</mat-icon>
         </button>
-    </mat-form-field>
-    <mat-label *ngIf="data.tmp.img">Preview:</mat-label>
-    <img src="{{ data.tmp.img }}" alt="{{ data.tmp.name }}" *ngIf="data.tmp.img">
-</div>
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field class="add-game-modal">
+        <mat-label>Version</mat-label>
+        <input matInput 
+        [(ngModel)]="data.tmp.version" id="game-temp-version">
+        <button mat-button *ngIf="data.tmp.version" matSuffix mat-icon-button aria-label="Clear" (click)="data.tmp.version=''">
+            <mat-icon>close</mat-icon>
+        </button>
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field class="add-game-modal">
+        <mat-label>Link</mat-label>
+        <input matInput 
+        [(ngModel)]="data.tmp.link" id="game-temp-link">
+        <button mat-button *ngIf="data.tmp.link" matSuffix mat-icon-button aria-label="Clear" (click)="data.tmp.link=''">
+            <mat-icon>close</mat-icon>
+        </button>
+        </mat-form-field>
+    </div>
+    <div id="imgParent">
+        <mat-form-field class="add-game-modal">
+            <mat-label>Img</mat-label>
+            <input matInput 
+            [(ngModel)]="data.tmp.img" id="game-temp-img">
+            <button mat-button *ngIf="data.tmp.img" matSuffix mat-icon-button aria-label="Clear" (click)="data.tmp.img=''">
+                <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+        <mat-label *ngIf="data.tmp.img">Preview:</mat-label>
+        <img src="{{ data.tmp.img }}" alt="{{ data.tmp.name }}" *ngIf="data.tmp.img">
+    </div>
 </div>
 <div mat-dialog-actions id="modalSubmitParent">
-<button mat-button (click)="no()">Close</button>
-<button mat-button [mat-dialog-close]="data.tmp" cdkFocusInitial id="modalSubmit">Ok</button>
+    <button mat-button (click)="no()">Close</button>
+    <button mat-button [mat-dialog-close]="data.tmp" cdkFocusInitial id="modalSubmit">Ok</button>
 </div>

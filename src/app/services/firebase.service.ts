@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
-import { Observable } from 'rxjs';
-import { Game } from '../models/game'
+import { AngularFirestore } from '@angular/fire/firestore';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +11,8 @@ export class FirebaseService {
 
   constructor(private afs: AngularFirestore) {
     this.gamesCollection = this.afs.collection("Games")
-    this.games = this.gamesCollection.valueChanges({ idField: 'id' })
+    this.games = this.gamesCollection
+      .valueChanges({ idField: 'id' })
   }
 
   getGames() {

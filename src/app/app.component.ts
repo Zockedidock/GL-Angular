@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Inject } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FirebaseService } from './services/firebase.service'
 import { DialogGame } from './models/game'
@@ -10,7 +10,7 @@ import { DialogGame } from './models/game'
 })
 export class AppComponent {
   title = 'game-launcher'
-  games
+  games: any
   value: string = ""
   searchText: string = '';
 
@@ -27,7 +27,14 @@ export class AppComponent {
   openAddGameDialog(): void {
     const addGame = this.dialog.open(AddGameModal, {
       width: '500px',
-      data: {tmp: {name: "", version: "", link: "", img: ""}}
+      data: {
+        tmp: {
+          name: "",
+          version: "",
+          link: "",
+          img: ""
+        }
+      }
     });
     addGame.afterClosed().subscribe(result => {
       try {

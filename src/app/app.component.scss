@@ -226,27 +226,32 @@ svg#clouds {
   width: 1920px;
 }
 
+.head {
+  width: 490px;
+}
+.example-form-field {
+  width: 80%;
+}
 
 /* Responsive Styles */
-@media screen and (max-width: 767px) {
-
-  .card-container > *:not(.circle-link) ,
-  .terminal {
+@media screen and (max-width: 500px) {
+  .head {
     width: 100%;
   }
-
-  .card:not(.highlight-card) {
-    height: 16px;
-    margin: 8px 0;
+  .example-form-field {
+    width: 80%;
   }
-
-  .card.highlight-card span {
-    margin-left: 72px;
+  button {
+    width: 20%;
   }
+}
 
-  svg#rocket-smoke {
-    right: 120px;
-    transform: rotate(-5deg);
+@media screen and (max-width: 730px) {
+  .card {
+    width: 40%;
+    .img {
+      max-width: 3rem;
+    }
   }
 }
 
@@ -257,6 +262,3 @@ svg#clouds {
   }
 }
 
-.example-form-field {
-  width: 500px;
-}
