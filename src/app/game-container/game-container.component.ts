@@ -23,19 +23,19 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 
 export class GameContainerComponent implements OnInit {
-    
+
     @Input() imgSrc: string
     @Input() version: string
     @Input() name: string
     @Input() link: string
     @Input() searchText: string
 
-    show: Boolean = true
+    show: boolean = true
 
-    constructor() {}
+    constructor() { }
 
     ngOnInit() {
-        
+
     }
 
     hide() {

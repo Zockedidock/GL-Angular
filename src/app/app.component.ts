@@ -14,10 +14,8 @@ export class AppComponent {
   value: string = ""
   searchText: string = '';
 
-  constructor( private fire: FirebaseService, public dialog: MatDialog ) {
-    
-  }
-  
+  constructor(private fire: FirebaseService, public dialog: MatDialog) { }
+
   ngOnInit(): void {
     this.fire.getGames().subscribe(temp => {
       this.games = temp
@@ -51,9 +49,9 @@ export class AppComponent {
   templateUrl: './Modals/addGame.dialog.html'
 })
 export class AddGameModal {
-  constructor (public dialogRef: MatDialogRef<AddGameModal>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogGame) {}
-  no(): void {
+  constructor(public dialogRef: MatDialogRef<AddGameModal>,
+    @Inject(MAT_DIALOG_DATA) public data: DialogGame) { }
+  no(): void { //Yes, I know. Creative name
     this.dialogRef.close()
   }
 }
