@@ -5,21 +5,38 @@ import { AngularFirestore } from '@angular/fire/firestore';
   providedIn: 'root'
 })
 export class FirebaseService {
-  gamesCollection
-  games
+  collection: string
+  gamesCollection: any
+  games: any
   //gamesObserv = this.afs.collection("Games").valueChanges()
 
   constructor(private afs: AngularFirestore) {
-    this.gamesCollection = this.afs.collection("Games")
+    this.setCollection('Games')
+  }
+
+  getGames(): any {
+    return this.games
+  }
+
+  setCollection(col: string): void {
+    this.collection = col
+    this.gamesCollection = this.afs.collection(this.collection)
     this.games = this.gamesCollection
       .valueChanges({ idField: 'id' })
   }
 
-  getGames() {
-    return this.games
-  }
-
-  addGame(gameTemp) {
+  addGame(gameTemp: any): void {
     this.gamesCollection.add(gameTemp)
   }
+
+  removeGame(gameObj: any): void {
+    this.gamesCollection.doc(gameObj.id).delete()
+      .then(() => {
+        console.log('Document successfully deleted!');
+      })
+      .catch(error => {
+        console.error('Error removing document: ', error);
+      });
+  }
+
 }

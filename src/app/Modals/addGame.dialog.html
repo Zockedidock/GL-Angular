@@ -43,7 +43,7 @@
         <img src="{{ data.tmp.img }}" alt="{{ data.tmp.name }}" *ngIf="data.tmp.img">
     </div>
 </div>
-<div mat-dialog-actions id="modalSubmitParent">
+<div mat-dialog-actions class="modalSubmitParent">
     <button mat-button (click)="no()">Close</button>
     <button mat-button [mat-dialog-close]="data.tmp" cdkFocusInitial id="modalSubmit">Ok</button>
 </div>

@@ -1,14 +1,35 @@
 <div class="content" role="main">
   <div class="head">
     <mat-form-field class="example-form-field">
-      <mat-label>Search...</mat-label>
-      <input matInput aria-describedby="search-text" 
-      [(ngModel)]="searchText" id="search-text">
-      <button mat-button *ngIf="searchText" matSuffix mat-icon-button aria-label="Clear" (click)="searchText=''">
-        <mat-icon>close</mat-icon>
+      <mat-label>
+        Search...
+      </mat-label>
+      <input matInput
+      aria-describedby="search-text" 
+      [(ngModel)]="searchText"
+      id="search-text"
+      [matAutocomplete]="auto">
+      <button mat-button matSuffix mat-icon-button
+        *ngIf="searchText"
+        aria-label="Clear"
+        (click)="searchText=''">
+        <mat-icon>
+          close
+        </mat-icon>
       </button>
+      <mat-autocomplete #auto="matAutocomplete">
+        <ng-container *ngFor="let game of games">
+          <mat-option 
+          *ngIf="game.name.toLocaleLowerCase().includes(searchText.toLocaleLowerCase()) && searchText != ''"
+          [value]="game"
+          (click)="searchText = game.name">
+            {{ game.name }}
+          </mat-option>
+        </ng-container>
+      </mat-autocomplete>
     </mat-form-field>
     <button mat-button (click)="openAddGameDialog()">Add Game</button>
+    <button mat-button (click)="s('GamesDemo')">Change</button>
   </div>
   <div class="card-container">
     <ng-container *ngFor="let game of games">
@@ -19,6 +40,7 @@
         [imgSrc]="game.img"
         [link]="game.link"
         [searchText]="searchText"
+        [obj]="game"
         ></app-game-container>
     </ng-container>
   </div>

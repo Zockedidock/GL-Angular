@@ -2,6 +2,7 @@ import { Component, Inject } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FirebaseService } from './services/firebase.service'
 import { DialogGame } from './models/game'
+import { RemoveGameModal } from './game-container/game-container.component'
 
 @Component({
   selector: 'app-root',
@@ -10,13 +11,14 @@ import { DialogGame } from './models/game'
 })
 export class AppComponent {
   title = 'game-launcher'
-  games: any
-  value: string = ""
+  games: any;
+  value: string = ''
   searchText: string = '';
 
   constructor(private fire: FirebaseService, public dialog: MatDialog) { }
 
   ngOnInit(): void {
+
     this.fire.getGames().subscribe(temp => {
       this.games = temp
     })
@@ -27,10 +29,10 @@ export class AppComponent {
       width: '500px',
       data: {
         tmp: {
-          name: "",
-          version: "",
-          link: "",
-          img: ""
+          name: '',
+          version: '',
+          link: '',
+          img: ''
         }
       }
     });
@@ -41,6 +43,12 @@ export class AppComponent {
         console.log(`Error: ${e}`)
       }
     });
+  }
+  s(a: string): void {
+    this.fire.setCollection(a)
+    this.fire.getGames().subscribe(temp => {
+      this.games = temp
+    })
   }
 }
 

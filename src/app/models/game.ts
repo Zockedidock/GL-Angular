@@ -3,6 +3,7 @@ export interface Game {
     version: string,
     img: string,
     link: string
+    id?
 }
 export interface DialogGame {
     tmp: Game
